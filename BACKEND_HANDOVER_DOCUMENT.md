@@ -17,6 +17,8 @@ This document outlines the data requirements and API expectations of the Next.js
 *   `lib/strapi.ts`: Contains helper functions for fetching data from Strapi.
 *   `types/strapi-types.ts`: Contains TypeScript definitions for expected Strapi data structures. Please review these types for detailed field expectations.
 
+
+
 ## 2. General API Expectations
 
 *   **REST API:** The frontend primarily uses Strapi's REST API.
