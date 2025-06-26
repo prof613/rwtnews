@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 222.2 84% 4.9%; /* Dark Gray / Almost Black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 241 30% 33%; /* RWT Blue: #3C3B6E */
+    --primary-foreground: 210 40% 98%; /* Light color for text on primary */
+
+    --secondary: 210 40% 96.1%; /* Light Gray */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Dark Blue/Gray for text on secondary */
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* Grayer text */
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 353 67% 41%; /* RWT Red: #B22234 */
+    --destructive-foreground: 210 40% 98%; /* Light color for text on destructive */
+
+    --border: 214.3 31.8% 91.4%; /* Light Gray Border */
+    --input: 214.3 31.8% 91.4%; /* Light Gray Input Background */
+    --ring: 241 30% 45%; /* Lighter RWT Blue for focus rings */
+
+    --radius: 0.5rem; /* Default shadcn border radius */
+
+    /* Chart colors (customize as needed) */
+    --chart-1: 241 30% 33%; /* rwt-blue */
+    --chart-2: 353 67% 41%; /* rwt-red */
+    --chart-3: 200 80% 50%; /* A distinct cyan/blue */
+    --chart-4: 40 90% 55%; /* A distinct orange */
+    --chart-5: 280 70% 60%; /* A distinct purple */
+
+    /* Sidebar specific colors (if you want sidebar to have a distinct theme) */
+    /* These are examples; adjust if your sidebar has a different background or text colors */
+    --sidebar-background: 220 15% 97%; /* Very light, slightly cool gray */
+    --sidebar-foreground: 222.2 84% 4.9%; /* Dark text */
+    --sidebar-primary: 241 30% 33%; /* rwt-blue */
+    --sidebar-primary-foreground: 210 40% 98%; /* Light text on sidebar primary */
+    --sidebar-accent: 353 67% 41%; /* rwt-red */
+    --sidebar-accent-foreground: 210 40% 98%; /* Light text on sidebar accent */
+    --sidebar-border: 214.3 31.8% 91.4%; /* Light gray border for sidebar elements */
+    --sidebar-ring: 241 30% 45%; /* Lighter RWT Blue for focus in sidebar */
+  }
+
+  /*
+    Since your ThemeProvider is set to defaultTheme="light" and enableSystem={false},
+    dark mode variables might not be actively used unless you manually switch themes.
+    If shadcn/ui components require them to be present, you can define them.
+    For a strictly light theme, these can be omitted or be identical to :root.
+    Here, they are set to be the same as light mode as a fallback.
+  */
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 241 30% 33%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 353 67% 41%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 241 30% 45%;
+    /* Chart colors for dark mode - can be same or adjusted */
+    --chart-1: 241 30% 33%;
+    --chart-2: 353 67% 41%;
+    --chart-3: 200 80% 50%;
+    --chart-4: 40 90% 55%;
+    --chart-5: 280 70% 60%;
+    /* Sidebar colors for dark mode - can be same or adjusted */
+    --sidebar-background: 220 15% 97%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 241 30% 33%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 353 67% 41%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 241 30% 45%;
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-gray-100 text-foreground; /* Default background for the entire page */
+    /*
+      To apply the American flag background to the entire site:
+      background-image: url('/images/core/american-flag.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    */
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1; /* Enable common ligatures */
+  }
+
+  /* Add any other global base styles here */
+  /* For example, consistent link styling if not handled by Tailwind's prose or components */
+  /*
+  a {
+    @apply text-rwt-red hover:underline;
+  }
+  */
+}
+
+/* Custom scrollbar styling (optional, for aesthetics) */
+/* This is a simple example and might need browser-specific prefixes for full compatibility */
+/*
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background) / 0.5);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.7);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+*/
